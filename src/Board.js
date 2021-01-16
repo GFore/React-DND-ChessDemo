@@ -21,7 +21,7 @@ export default function Board({ knightPosition }) {
   for (let i = 0; i < 64; i++ ) {
     squares.push(renderSquare(i, knightPosition));
   }
-  console.log({squares});
+
   return (
     <div
       style={{
