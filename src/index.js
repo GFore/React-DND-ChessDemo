@@ -1,11 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Board from './Board'
-
-function observe(receive) {
-  const randPos = () => Math.floor(Math.random() * 8)
-  setInterval(() => receive([randPos(), randPos()]), 1000)
-}
+import { observe } from './Game'
 
 const root = document.getElementById('root');
 
