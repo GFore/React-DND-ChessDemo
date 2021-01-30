@@ -3,7 +3,6 @@ import Square from './Square';
 import Knight from './Knight';
 import { moveKnight } from './Game'
 
-// add
 function handleSquareClick(toX, toY) {
   moveKnight(toX, toY)
 }
