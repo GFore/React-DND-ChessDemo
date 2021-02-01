@@ -11,17 +11,17 @@ function Knight() {
   })
 
   return (
-    <div
+    <span
       ref={drag}
       style={{
         opacity: isDragging ? 0.5 : 1,
-        fontSize: 80,
+        fontSize: 35,
         fontWeight: 'bold',
         cursor: 'move',
       }}
     >
       ♘
-    </div>
+    </span>
   )
 }
 
