@@ -1,10 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom'
-import Board from './Board'
-import { observe } from './Game'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
-const root = document.getElementById('root');
+import { Board } from './Board';
+import { observe } from './Game';
 
-observe((knightPosition) =>
-  ReactDOM.render(<Board knightPosition={knightPosition} />, root)
-)
+const containerStyle = {
+  width: 500,
+  height: 500,
+  border: '1px solid gray',
+};
+
+function App() {
+  const [knightPos, setKnightPos] = useState([1, 7]);
+  // the observe function will return an unsubscribe callback
+  useEffect(() => observe((newPos) => setKnightPos(newPos)));
+
+  return (
+    <div className="App">
+      <DndProvider backend={HTML5Backend}>
+        <div>
+          <div style={containerStyle}>
+            <Board knightPosition={knightPos}/>
+          </div>
+        </div>
+      </DndProvider>
+    </div>
+  )
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
