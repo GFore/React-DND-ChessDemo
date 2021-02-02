@@ -2,7 +2,7 @@ import React from 'react';
 import { useDrop } from 'react-dnd';
 import { Square } from './Square';
 import { canMoveKnight, moveKnight } from './Game';
-import { ItemTypes } from './ItemTypes';
+import { ItemTypes } from './Constants';
 import { Overlay } from './Overlay';
 export const BoardSquare = ({ x, y, children, }) => {
     const [{ isOver, canDrop }, drop] = useDrop({
