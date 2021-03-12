@@ -2,12 +2,12 @@ import React, { useDrag, useDrop } from 'react-dnd';
 import { ItemTypes } from './Constants';
 
 const style = {
-    border: '1px dashed gray',
-    padding: '0.5rem 1rem',
-    marginBottom: '.5rem',
-    // backgroundColor: 'white',
-    cursor: 'move',
+  border: '1px dashed gray',
+  padding: '0.5rem 1rem',
+  marginBottom: '.5rem',
+  cursor: 'move',
 };
+
 export const Card = ({ id, text, moveCard, findCard }) => {
   const originalIndex = findCard(id).index;
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -28,10 +28,10 @@ export const Card = ({ id, text, moveCard, findCard }) => {
     accept: ItemTypes.CARD,
     canDrop: () => false,
     hover({ id: draggedId }) {
-        if (draggedId !== id) {
-            const { index: overIndex } = findCard(id);
-            moveCard(draggedId, overIndex);
-        }
+      if (draggedId !== id) {
+        const { index: overIndex } = findCard(id);
+        moveCard(draggedId, overIndex);
+      }
     },
   }));
 
